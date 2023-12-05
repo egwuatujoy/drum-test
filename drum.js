@@ -6,6 +6,7 @@ for (i = 0; i < newDrums; i++) {
     [i].addEventListener("click", function () {
       const buttonInner = this.innerHTML;
       makeSound(buttonInner);
+      theBtn(buttonInner);
     });
 }
 
@@ -54,4 +55,13 @@ function makeSound(key) {
     default:
       console.log(buttoninnerHtml);
   }
+}
+
+function theBtn(currKey) {
+  var activeBtn = document.querySelector("." + currKey);
+  activeBtn.classList.add("pressed");
+
+  setTimeout(function () {
+    activeBtn.classList.remove("pressed");
+  }, 300);
 }
